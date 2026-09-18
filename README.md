@@ -125,7 +125,9 @@ low-engagement or inactive customers.
 
 
 \### Sales Forecasting
+## Live Application
 
+[Launch the Streamlit Dashboard](https://uk-online-retail-intelligence.streamlit.app)
 
 
 The following forecasting approaches were compared:
