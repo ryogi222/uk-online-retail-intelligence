@@ -1,4 +1,4 @@
-from pathlib import Path
+﻿from pathlib import Path
 
 import pandas as pd
 import plotly.express as px
@@ -8,7 +8,7 @@ import streamlit as st
 
 st.set_page_config(
     page_title="Sales Forecast",
-    page_icon="📈",
+    page_icon="ðŸ“ˆ",
     layout="wide"
 )
 
@@ -99,12 +99,12 @@ column2.metric(
 
 column3.metric(
     "RMSE",
-    f"£{best_rmse:,.0f}"
+    f"Â£{best_rmse:,.0f}"
 )
 
 column4.metric(
     "Eight-Week Forecast",
-    f"£{forecast_total:,.0f}"
+    f"Â£{forecast_total:,.0f}"
 )
 
 
@@ -147,13 +147,13 @@ forecast_chart.add_vline(
 forecast_chart.update_layout(
     title="Historical and Forecast Weekly Revenue",
     xaxis_title="Week",
-    yaxis_title="Revenue (£)",
+    yaxis_title="Revenue (Â£)",
     hovermode="x unified"
 )
 
 st.plotly_chart(
     forecast_chart,
-    use_container_width=True
+    width="stretch"
 )
 
 
@@ -173,14 +173,14 @@ with left_column:
     )
 
     comparison_chart.update_layout(
-        yaxis_title="Forecast Error (£)",
+        yaxis_title="Forecast Error (Â£)",
         xaxis_title="Model",
         legend_title=""
     )
 
     st.plotly_chart(
         comparison_chart,
-        use_container_width=True
+        width="stretch"
     )
 
 
@@ -189,16 +189,16 @@ with right_column:
 
     st.dataframe(
         performance,
-        use_container_width=True,
+        width="stretch",
         hide_index=True,
         column_config={
             "MAE": st.column_config.NumberColumn(
                 "MAE",
-                format="£%.2f"
+                format="Â£%.2f"
             ),
             "RMSE": st.column_config.NumberColumn(
                 "RMSE",
-                format="£%.2f"
+                format="Â£%.2f"
             ),
             "MAPE_Percent": st.column_config.NumberColumn(
                 "MAPE (%)",
@@ -212,7 +212,7 @@ st.subheader("Eight-Week Forecast")
 
 st.dataframe(
     forecast,
-    use_container_width=True,
+    width="stretch",
     hide_index=True,
     column_config={
         "Week": st.column_config.DateColumn(
@@ -221,7 +221,7 @@ st.dataframe(
         ),
         "ForecastRevenue": st.column_config.NumberColumn(
             "Forecast Revenue",
-            format="£%.2f"
+            format="Â£%.2f"
         )
     }
 )
@@ -230,11 +230,11 @@ st.dataframe(
 st.info(
     f"""
     {best_model} achieved the strongest holdout performance,
-    with an MAE of £{best_mae:,.0f}, RMSE of £{best_rmse:,.0f}
+    with an MAE of Â£{best_mae:,.0f}, RMSE of Â£{best_rmse:,.0f}
     and MAPE of {best_mape:.2f}%.
 
     The average predicted weekly revenue is
-    £{average_weekly_forecast:,.0f}.
+    Â£{average_weekly_forecast:,.0f}.
     """
 )
 

@@ -1,4 +1,4 @@
-from pathlib import Path
+﻿from pathlib import Path
 
 import numpy as np
 import pandas as pd
@@ -8,7 +8,7 @@ import streamlit as st
 
 st.set_page_config(
     page_title="Customer Segmentation",
-    page_icon="👥",
+    page_icon="ðŸ‘¥",
     layout="wide"
 )
 
@@ -114,7 +114,7 @@ with left_column:
 
     st.plotly_chart(
         segment_chart,
-        use_container_width=True
+        width="stretch"
     )
 
 
@@ -133,12 +133,12 @@ with right_column:
             "categoryorder": "total ascending"
         },
         yaxis_title="",
-        xaxis_title="Revenue (£)"
+        xaxis_title="Revenue (Â£)"
     )
 
     st.plotly_chart(
         revenue_chart,
-        use_container_width=True
+        width="stretch"
     )
 
 
@@ -160,12 +160,12 @@ scatter_chart = px.scatter(
 
 scatter_chart.update_layout(
     xaxis_title="Days Since Last Purchase",
-    yaxis_title="Customer Spending (£, Log Scale)"
+    yaxis_title="Customer Spending (Â£, Log Scale)"
 )
 
 st.plotly_chart(
     scatter_chart,
-    use_container_width=True
+    width="stretch"
 )
 
 
@@ -200,6 +200,6 @@ st.dataframe(
         "Monetary",
         ascending=False
     ),
-    use_container_width=True,
+    width="stretch",
     hide_index=True
 )

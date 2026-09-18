@@ -1,4 +1,4 @@
-from pathlib import Path
+﻿from pathlib import Path
 
 import numpy as np
 import pandas as pd
@@ -8,7 +8,7 @@ import streamlit as st
 
 st.set_page_config(
     page_title="Products and Returns",
-    page_icon="📦",
+    page_icon="ðŸ“¦",
     layout="wide"
 )
 
@@ -89,17 +89,17 @@ column1, column2, column3, column4 = st.columns(4)
 
 column1.metric(
     "Gross Revenue",
-    f"£{gross_revenue:,.0f}"
+    f"Â£{gross_revenue:,.0f}"
 )
 
 column2.metric(
     "Customer Returns",
-    f"£{customer_return_value:,.0f}"
+    f"Â£{customer_return_value:,.0f}"
 )
 
 column3.metric(
     "Estimated Net Revenue",
-    f"£{estimated_net_revenue:,.0f}"
+    f"Â£{estimated_net_revenue:,.0f}"
 )
 
 column4.metric(
@@ -238,13 +238,13 @@ with left_column:
         yaxis={
             "categoryorder": "total ascending"
         },
-        xaxis_title="Net Revenue (£)",
+        xaxis_title="Net Revenue (Â£)",
         yaxis_title=""
     )
 
     st.plotly_chart(
         product_chart,
-        use_container_width=True
+        width="stretch"
     )
 
 
@@ -264,7 +264,7 @@ with right_column:
 
     st.plotly_chart(
         return_type_chart,
-        use_container_width=True
+        width="stretch"
     )
 
 
@@ -309,13 +309,13 @@ returns_chart.update_layout(
     yaxis={
         "categoryorder": "total ascending"
     },
-    xaxis_title="Return Value (£)",
+    xaxis_title="Return Value (Â£)",
     yaxis_title=""
 )
 
 st.plotly_chart(
     returns_chart,
-    use_container_width=True
+    width="stretch"
 )
 
 
@@ -334,12 +334,12 @@ st.dataframe(
         "NetRevenue",
         ascending=False
     ),
-    use_container_width=True,
+    width="stretch",
     hide_index=True,
     column_config={
         "NetRevenue": st.column_config.NumberColumn(
             "Net Revenue",
-            format="£%.2f"
+            format="Â£%.2f"
         ),
         "NetUnits": st.column_config.NumberColumn(
             "Net Units",
